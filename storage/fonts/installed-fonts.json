@@ -1,0 +1,11 @@
+{
+    "dejavu sans": {
+        "bold": "C:\\Users\\Lenovo\\Desktop\\rakeinfra\\vendor\\dompdf\\dompdf\/lib\/fonts\/DejaVuSans-Bold",
+        "bold_italic": "C:\\Users\\Lenovo\\Desktop\\rakeinfra\\vendor\\dompdf\\dompdf\/lib\/fonts\/DejaVuSans-BoldOblique",
+        "italic": "C:\\Users\\Lenovo\\Desktop\\rakeinfra\\vendor\\dompdf\\dompdf\/lib\/fonts\/DejaVuSans-Oblique",
+        "normal": "dejavu_sans_normal_5a8b6668c975d33e5c4036a170412ffd"
+    },
+    "dejavusans": {
+        "normal": "dejavusans_normal_5a8b6668c975d33e5c4036a170412ffd"
+    }
+}

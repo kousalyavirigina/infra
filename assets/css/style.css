@@ -1,0 +1,1162 @@
+/* ===============================
+   GLOBAL RESET
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f4f6fb;
+    color: #222;
+}
+
+/* ===============================
+   HEADER / NAVBAR
+================================ */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    z-index: 10;
+
+    /* 🔥 IMPORTANT: prevent blocking plot clicks */
+    pointer-events: none;
+}
+
+header a,
+header nav,
+header button 
+header form {
+    pointer-events: auto;
+}
+header nav.navbar a,
+header nav.navbar button {
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+}
+
+
+header .logo img {
+    height: 55px;
+}
+
+header nav a {
+    background: #ffffff;
+    color: #0a1735;
+    padding: 8px 14px;
+    margin-left: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    transition: all 0.25s ease;
+}
+
+header nav a:hover {
+    background: #0a1735;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+/* FIX LOGOUT ALIGNMENT */
+header nav.navbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+header nav.navbar form {
+    margin: 0;
+    display: inline-flex;
+}
+
+
+.logout-btn {
+    background: #ffffff;
+    color: #0a1735;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #0a1735;
+    color: #ffffff;
+}
+
+
+/* ===============================
+   MAIN WRAPPER
+================================ */
+main {
+    margin-top: 100px;
+}
+
+/* ===============================
+   SITE LAYOUT PAGE
+================================ */
+.layout-wrapper {
+    padding: 40px 20px;
+}
+
+/* Container MUST be relative */
+.layout-image {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Layout image */
+.layout-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===============================
+   CLICKABLE PLOT POINTS
+================================ */
+.plot-point {
+    position: absolute;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Available plot */
+.plot-point.available {
+    background: #16a34a;
+}
+
+/* Sold plot */
+.plot-point.sold {
+    background: #dc2626;
+    cursor: not-allowed;
+}
+
+/* Hover animation */
+.plot-point:hover {
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+}
+
+/* ===============================
+   PLOT DETAILS PAGE
+================================ */
+.plot-details {
+    max-width: 600px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+}
+
+.plot-details h2 {
+    margin-bottom: 20px;
+    color: #0a1735;
+}
+
+.plot-details p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.plot-details .status {
+    font-weight: bold;
+}
+
+.plot-details .available {
+    color: #16a34a;
+}
+
+.plot-details .sold {
+    color: #dc2626;
+}
+
+.plot-details .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: #0a1735;
+    color: #ffffff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.plot-details .btn:hover {
+    background: #13285c;
+}
+
+/* ===============================
+   BOOKING FORM
+================================ */
+.booking-form {
+    max-width: 500px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.booking-form button {
+    width: 100%;
+    padding: 14px;
+    background: #0a1735;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.booking-form button:hover {
+    background: #13285c;
+}
+
+/* ===============================
+   ADMIN / DASHBOARD HELPERS
+================================ */
+table th,
+table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.success {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+.error {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+/* =========================
+   HERO SECTION – FULL SCREEN VIDEO
+========================= */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;          /* Full screen height */
+    overflow: hidden;
+    background: #000;
+}
+
+/* VIDEO FILLS SCREEN */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* 🔥 fills screen perfectly */
+}
+
+/* REMOVE OVERLAY / BLUR COMPLETELY */
+.hero::after {
+    display: none;
+}
+
+/* HERO TEXT */
+.hero-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.4); /* keeps text readable */
+}
+
+.hero-content p {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   SECTION COMMON
+========================= */
+section {
+    padding: 70px 20px;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #0A1735;
+}
+
+/* =========================
+   SERVICES
+========================= */
+.services {
+    background: #ffffff;
+}
+
+.service-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.service-box {
+    background: #f9fafb;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.service-box:hover {
+    transform: translateY(-6px);
+}
+
+.service-box h3 {
+    color: #0A1735;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+.projects {
+    background: #f5f7fb;
+}
+
+.project-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.project-box {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.project-box:hover {
+    transform: translateY(-6px);
+}
+
+.project-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-box h3 {
+    padding: 15px 15px 5px;
+    color: #0A1735;
+}
+
+.project-box p {
+    padding: 0 15px 15px;
+    color: #555;
+}
+
+/* =========================
+   ABOUT
+========================= */
+.about {
+    background: #ffffff;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background: #f9fafb;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact {
+    background: #0A1735;
+    color: #ffffff;
+    text-align: center;
+}
+
+.contact h2 {
+    color: #ffffff;
+}
+
+.contact p {
+    margin: 8px 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #050b1e;
+    color: #ccc;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .about-container {
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    section h2 {
+        font-size: 26px;
+    }
+}
+
+
+/* =========================
+   FEEDBACK PAGE
+========================= */
+.feedback-section {
+    background: #f5f7fb;
+    padding: 70px 20px;
+}
+
+/* MAIN WRAPPER */
+.feedback-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 40px;
+}
+
+/* FORM BOX */
+.form-box {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* HEADINGS */
+.form-box h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #0A1735;
+    text-align: center;
+}
+
+/* FORM */
+.main-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* LABELS */
+.main-form label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    margin-top: 15px;
+    color: #333;
+}
+
+/* INPUTS */
+.main-form input,
+.main-form select,
+.main-form textarea {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    font-size: 14px;
+    outline: none;
+    background: #ffffff;
+    transition: 0.3s ease;
+}
+
+/* FOCUS EFFECT */
+.main-form input:focus,
+.main-form select:focus,
+.main-form textarea:focus {
+    border-color: #0A1735;
+    box-shadow: 0 0 0 2px rgba(10,23,53,0.1);
+}
+
+/* TEXTAREA */
+.main-form textarea {
+    resize: vertical;
+}
+
+/* BUTTON */
+.form-btn {
+    margin-top: 25px;
+    background: #0A1735;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.form-btn:hover {
+    background: #13285C;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .feedback-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .form-box {
+        padding: 25px;
+    }
+
+    .form-box h2 {
+        font-size: 22px;
+    }
+}
+
+
+/* =========================
+   PLOT LAYOUT
+========================= */
+.layout-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.layout-image {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* PLOT BUTTON */
+.plot {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* AVAILABLE */
+.plot.available {
+    background: #0f9d58;
+    color: #fff;
+    box-shadow: 0 0 12px rgba(15,157,88,0.8);
+}
+
+.plot.available:hover {
+    transform: scale(1.1);
+}
+
+/* SOLD */
+.plot.sold {
+    background: #d93025;
+    color: #fff;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* =========================
+   BOOKING FORM
+========================= */
+.booking-form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-form label {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.booking-form input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.form-btn {
+    margin-top: 25px;
+    background: #0A1735;
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+/* =========================
+   PLOT LAYOUT – DOT FIX
+========================= */
+
+.plot-layout-wrapper {
+    padding: 40px 20px;
+}
+
+.layout-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #0A1735;
+}
+
+.layout-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* 🔥 THIS IS THE KEY FIX */
+.layout-map {
+    position: relative;
+    width: 900px;            /* FIXED reference width */
+}
+
+/* IMAGE */
+.layout-map img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* 🔵 DOT STYLE */
+/* .plot-dot {
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background: #0f9d58;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 0 12px rgba(15,157,88,0.8);
+    text-decoration: none;
+} */
+
+/* HOVER */
+/* .plot-dot:hover {
+    transform: translate(-50%, -50%) scale(1.15);
+} */
+
+/* SOLD */
+.plot-dot.sold {
+    background: #d93025;
+    box-shadow: 0 0 12px rgba(217,48,37,0.8);
+    cursor: not-allowed;
+}
+
+/* =========================
+   PLOT LAYOUT – FIX
+========================= */
+
+.layout-map {
+    position: relative;       /* 🔥 MOST IMPORTANT LINE */
+    width: 900px;
+    margin: 0 auto;
+}
+
+.layout-map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Plot Dot */
+.plot-dot {
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background: #0f9d58;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(15,157,88,0.8);
+    text-decoration: none;
+}
+
+.plot-dot:hover {
+    transform: translate(-50%, -50%) scale(1.15);
+}
+
+.plot-dot.sold {
+    background: #d93025;
+    box-shadow: 0 0 12px rgba(217,48,37,0.8);
+    cursor: not-allowed;
+}
+
+
+
+/* ===============================
+   ADMIN DASHBOARD – 3D UI
+================================ */
+
+/* ===============================
+   ADMIN DASHBOARD – SALES STYLE
+================================ */
+
+.admin-dashboard {
+    padding: 120px 40px 80px;
+    background: #f4f7ff;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Title */
+.admin-dashboard .dash-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: #0A1735;
+}
+
+.admin-dashboard .dash-subtitle {
+    text-align: center;
+    color: #5c6bc0;
+    margin-bottom: 50px;
+}
+
+/* 🔥 GRID – THIS IS THE KEY */
+.admin-dashboard .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===============================
+   STATS GRID
+================================ */
+
+
+
+/* ===============================
+   3D STAT CARDS
+================================ */
+
+.stat-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+    transition: all 0.35s ease;
+    border: 1px solid #e0e6ff;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+.stat-card h3 {
+    font-size: 16px;
+    margin-bottom: 14px;
+    color: #13285C;
+}
+
+.stat-card p {
+    font-size: 42px;
+    font-weight: 800;
+    color: #007BFF;
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+.stat-link,
+.stat-link:visited,
+.stat-link:hover,
+.stat-link:active {
+    text-decoration: none !important;
+    color: inherit;
+    display: block;
+}
+
+/* remove underline/border from text */
+.stat-link h3,
+.stat-link p {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+/* optional hover effect */
+.stat-link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    cursor: pointer;
+}
+
+
+.stat-link,
+.stat-link:hover,
+.stat-link:focus,
+.stat-link:active,
+.stat-link:visited {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+
+/* ===============================
+   QUICK ACTION BUTTONS
+================================ */
+
+.quick-actions {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* 3D Buttons */
+.action-btn {
+    padding: 14px 26px;
+    background: linear-gradient(135deg, #00eaff, #007bff);
+    color: #04112d;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 15px 35px rgba(0,234,255,0.35);
+    transition: all 0.35s ease;
+    transform-style: preserve-3d;
+}
+
+/* Hover animation */
+.action-btn:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 25px 55px rgba(0,234,255,0.55);
+}
+
+/* Danger button */
+.action-btn.danger {
+    background: linear-gradient(135deg, #ff4d4d, #ff0000);
+    color: #ffffff;
+    box-shadow: 0 15px 35px rgba(255,0,0,0.35);
+}
+
+.action-btn.danger:hover {
+    box-shadow: 0 25px 55px rgba(255,0,0,0.6);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+    .dash-title {
+        font-size: 30px;
+    }
+
+    .stat-card p {
+        font-size: 36px;
+    }
+}
+
+/* ===============================
+   SALES DASHBOARD – 3D STYLE
+================================ */
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #0A1735;
+}
+
+.dashboard-header p {
+    color: #6b78a0;
+    margin-top: 6px;
+}
+
+.sales-dashboard {
+    padding: 120px 40px 60px;
+    background: linear-gradient(135deg, #f4f7ff, #e9efff);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Title */
+.sales-dashboard .dash-title {
+    color: #0A1735;
+}
+
+.sales-dashboard .dash-subtitle {
+    color: #5c6bc0;
+}
+
+/* Grid */
+.sales-dashboard .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 🔥 FORCE 4 IN ONE ROW */
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* Clickable 3D Cards */
+.sales-dashboard .stat-card {
+    text-decoration: none;
+    background: white;
+    border-radius: 18px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+    transition: all 0.35s ease;
+    transform-style: preserve-3d;
+    border: 1px solid #e0e6ff;
+}
+
+/* Hover */
+.sales-dashboard .stat-card:hover {
+    transform: translateY(-10px) rotateX(6deg) rotateY(-5deg);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+/* Text */
+.sales-dashboard .stat-card h3 {
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    color: #13285C;
+}
+
+.sales-dashboard .stat-card p {
+    font-size: 40px;
+    font-weight: 800;
+    color: #007BFF;
+}
+
+/* Booked Card Accent */
+.sales-dashboard .stat-card.booked p {
+    color: #ff5722;
+}
+
+/* Actions */
+.sales-dashboard .quick-actions {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.sales-dashboard .action-btn {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #007BFF, #00eaff);
+    color: white;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 15px 35px rgba(0,123,255,0.35);
+    transition: 0.3s;
+}
+
+.sales-dashboard .action-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 25px 55px rgba(0,123,255,0.55);
+}
+
+@media (max-width: 1100px) {
+    .sales-dashboard .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .sales-dashboard .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Remove underline from all dashboard links */
+.admin-dashboard a {
+    text-decoration: none !important;
+}
+
+/* Prevent underline on hover */
+.admin-dashboard a:hover {
+    text-decoration: none !important;
+}
+/* ===============================
+   FINANCE STAT CARD
+================================ */
+.finance-stat {
+    background: linear-gradient(135deg, #ffffff, #f0f7ff);
+    border: 1px solid #dbeafe;
+    position: relative;
+    overflow: hidden;
+}
+
+.finance-stat h3 {
+    color: #18191b;
+}
+
+.finance-stat p {
+    font-size: 13px;
+    color: #131415;
+}
+
+.finance-icon {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    font-size: 28px;
+    opacity: 0.25;
+}
+
+.finance-stat:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 45px rgba(37, 99, 235, 0.25);
+}
+.finance-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Finance text color */
+.finance-text {
+    font-size: 26px;
+    font-weight: 700;
+    color: #e0bb27; /* Dark blue */
+}
+
+/* Icon beside Finance */
+.finance-icon {
+    font-size: 22px;
+}
+
+
