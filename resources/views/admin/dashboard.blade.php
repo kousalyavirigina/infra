@@ -10,15 +10,14 @@
 <div class="stats-grid">
 
     <a href="{{ route('plots.index') }}" class="stat-card stat-link">
-        <h3>Total Plots</h3>
-        <p>{{ $totalPlots }}</p>
-    </a>
+    <h3>Total Plots</h3>
+    <p>{{ $totalPlots }}</p>
+</a>
 
-    <a href="{{ route('plots.index', ['status' => 'available']) }}" class="stat-card stat-link">
-        <h3>Available Plots</h3>
-        <p>{{ $availablePlots }}</p>
-    </a>
-
+<a href="{{ route('plots.index', ['status' => 'available']) }}" class="stat-card stat-link">
+    <h3>Available Plots</h3>
+    <p>{{ $availablePlots }}</p>
+</a>
     <a href="{{ route('bookings.index') }}" class="stat-card stat-link">
         <h3>Booked Plots</h3>
         <p>{{ $bookedPlots }}</p>
@@ -56,13 +55,12 @@
 
 
 
-
-    <div class="quick-actions">
-        <a href="{{ route('admin.users.index') }}" class="action-btn">👤 Manage Users</a>
-        <a href="{{ route('admin.plots.create') }}" class="action-btn">➕ Add Plot</a>
-        <a href="{{ route('admin.plots.index') }}" class="action-btn">📋 View Plots</a>
-        <a href="{{ route('admin.plots.trash') }}" class="action-btn danger">🗑 Trash</a>
-    </div>
+<div class="quick-actions">
+    <a href="{{ route('admin.users.index') }}" class="action-btn">👤 Manage Users</a>
+    <a href="{{ route('admin.plots.create') }}" class="action-btn">➕ Add Plot</a>
+    <a href="{{ route('admin.plots.index') }}" class="action-btn">📋 View Plots</a>
+    <a href="{{ route('admin.plots.trash') }}" class="action-btn danger">🗑 Trash</a>
+</div>
 </section>
     
 @endsection

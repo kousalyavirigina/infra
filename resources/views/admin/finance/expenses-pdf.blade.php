@@ -18,16 +18,16 @@
 
                 <table class="table table-bordered table-hover">
 
-                    <thead class="table-light">
+                        <thead class="table-light">
                         <tr>
-                            <th>DatE</th>
+                            <th>Date</th>
                             <th>Category</th>
                             <th>Approved By</th>
                             <th>Payment Mode</th>
-                            <th class="text-end">Amount</th>
+                            <th class="text-end">Amount (₹)</th>
                             <th>Notes</th>
                         </tr>
-                    </thead>
+                        </thead>
 
                     <tbody>
 

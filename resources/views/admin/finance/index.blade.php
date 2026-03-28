@@ -7,21 +7,27 @@
 <div class="container mt-5">
 
 <style>
-
+/* 🔹 Finance Container */
 .finance-container {
     max-width: 1100px;
-    margin: auto;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
+/* 🔹 Header */
 .finance-header h1 {
-    font-size: 28px;
-    margin-bottom: 6px;
+    font-size: 26px;
+    margin-bottom: 8px;
+    color: #0f172a;
+    font-weight: 600;
 }
 
+/* 🔹 Subtitle / Status */
 .finance-header p {
-    color: #4caf50;
+    color: #16a34a;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    font-size: 14px;
 }
 
 /* Cards layout */

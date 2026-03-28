@@ -26,17 +26,17 @@ Create New User
 
 <form method="POST" action="/admin/users">
 @csrf
-
 <div class="mb-3">
-<label class="form-label" style="font-weight:600;">Name</label>
-<input 
-type="text"
-name="name"
-class="form-control"
-placeholder="Enter user name"
-required>
+  <label for="name" class="form-label">Name</label>
+  <input 
+    type="text"
+    id="name"
+    name="name"
+    class="form-control"
+    placeholder="Enter user name"
+    required
+  >
 </div>
-
 <div class="mb-3">
 <label class="form-label" style="font-weight:600;">Email Address</label>
 <input 
@@ -71,13 +71,9 @@ required>
 </div>
 
 <div style="display:flex; justify-content:space-between;">
-
-<button
-type="submit"
-class="btn btn-primary">
-Create User
+<button type="submit" class="btn btn-primary btn-submit">
+  Create User
 </button>
-
 <a href="/admin/users" style="color:#2563eb; text-decoration:none; padding-top:8px;">
 Back
 </a>
