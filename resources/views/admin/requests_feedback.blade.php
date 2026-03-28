@@ -41,13 +41,12 @@ User Requests & Feedback
 @forelse($requests as $req)
 
 <tr>
-<td>{{ $loop->iteration }}</td>
-<td>{{ $req->name }}</td>
-<td>{{ $req->email }}</td>
-<td>{{ $req->phone }}</td>
-<td>{{ $req->request_type }}</td>
+  <td>{{ $loop->iteration }}</td>
+  <td>{{ $req->name ?? '-' }}</td>
+  <td>{{ $req->email ?? '-' }}</td>
+  <td>{{ $req->phone ?? '-' }}</td>
+  <td>{{ ucfirst($req->request_type) ?? '-' }}</td>
 </tr>
-
 @empty
 
 <tr>
@@ -96,14 +95,17 @@ No requests found
 <tbody>
 
 @forelse($feedbacks as $fb)
-
 <tr>
-<td>{{ $loop->iteration }}</td>
-<td>{{ $fb->name }}</td>
-<td>{{ $fb->email }}</td>
-<td>{{ $fb->phone }}</td>
-<td>{{ $fb->rating }}</td>
-<td>{{ $fb->feedback }}</td>
+  <td>{{ $loop->iteration }}</td>
+  <td>{{ $fb->name ?? '-' }}</td>
+  <td>{{ $fb->email ?? '-' }}</td>
+  <td>{{ $fb->phone ?? '-' }}</td>
+  <td>
+    <span class="badge bg-success">
+      {{ $fb->rating ?? '-' }}
+    </span>
+  </td>
+  <td>{{ $fb->feedback ?? '-' }}</td>
 </tr>
 
 @empty
