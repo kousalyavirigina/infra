@@ -1,0 +1,2 @@
+Hello Git
+   this is the document for the git commands
