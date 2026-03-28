@@ -67,21 +67,16 @@ required>
 <!-- Role -->
 
 <div class="mb-3">
+  <label for="role" class="form-label fw-semibold">User Role</label>
 
-<label class="form-label fw-semibold">User Role</label>
-
-<select name="role" class="form-select">
-
-<option value="sales" {{ $user->role=='sales'?'selected':'' }}>
-Sales
-</option>
-
-<option value="admin" {{ $user->role=='admin'?'selected':'' }}>
-Admin
-</option>
-
-</select>
-
+  <select name="role" id="role" class="form-select" required>
+    <option value="sales" {{ $user->role === 'sales' ? 'selected' : '' }}>
+      Sales
+    </option>
+    <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>
+      Admin
+    </option>
+  </select>
 </div>
 
 <!-- Password -->
