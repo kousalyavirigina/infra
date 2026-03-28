@@ -40,41 +40,86 @@
 }
 
 /* ================= FILTER ================= */
-
-.filter-box{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:18px;
+/* 🔹 Filter Box */
+.filter-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+    align-items: center;
 }
 
+/* 🔹 Inputs & Select */
 .filter-box input,
-.filter-box select{
-    height:38px;
-    padding:6px 10px;
-    border:1px solid #dcdcdc;
-    border-radius:6px;
-    font-size:14px;
+.filter-box select {
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    transition: 0.2s ease;
 }
 
-.filter-box button{
-    background:#0A1735;
-    color:#fff;
-    border:none;
-    padding:0 18px;
-    border-radius:6px;
-    font-weight:600;
-    cursor:pointer;
+/* 🔹 Focus effect */
+.filter-box input:focus,
+.filter-box select:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
 }
 
-.filter-box a{
-    padding:8px 16px;
-    border:1px solid #ccc;
-    border-radius:6px;
-    text-decoration:none;
-    color:#333;
+/* 🔹 Button */
+.filter-box button {
+    height: 40px;
+    background: linear-gradient(135deg, #0A1735, #1e3a8a);
+    color: #fff;
+    border: none;
+    padding: 0 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
 }
 
+/* 🔹 Button hover */
+.filter-box button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* 🔹 Link (Reset / Clear) */
+.filter-box a {
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #374151;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+/* 🔹 Link hover */
+.filter-box a:hover {
+    background: #f3f4f6;
+}
+
+/* 🔹 Responsive */
+@media (max-width: 600px) {
+    .filter-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-box button,
+    .filter-box a {
+        width: 100%;
+        text-align: center;
+    }
+}
 .download-btn{
     background:#0A1735;
     color:#fff !important;
